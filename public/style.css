@@ -51,3 +51,7 @@ input {
     outline: none;
     border: solid 1px #f6f6f6;
 }
+
+table img {
+    width: 100%;
+}

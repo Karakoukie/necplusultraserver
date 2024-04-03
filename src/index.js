@@ -3,20 +3,20 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 const { VideoJob } = require('./jobs/videoJob');
-const { Tokenizer } = require('./Tokenizer');
+const { Tokenizer } = require('./tokenizer');
 
 const FOLDERS = {
-    public: [path.join(__dirname, "./../public")],
-    private: [path.join(__dirname, "./../private"), 'C:/Users/trist/Videos'],
+    public: [path.join(__dirname, "./../public"), '/media/admin/My Book/FilmCovers'],
+    private: [path.join(__dirname, "./../private"), '/media/admin/My Book/Movies'],
     admin: [path.join(__dirname, "./../admin")]
 }
 
 const CREDENTIALS = {
     private: {
-        secret: "1234",
+        secret: "aqwzsxyhn852456",
     },
     admin: {
-        secret: "azerty"
+        secret: "YTQ2YzVK2TDzHK47Xz------"
     }
 }
 
