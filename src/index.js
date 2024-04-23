@@ -5,6 +5,8 @@ const url = require('url');
 const { VideoJob } = require('./jobs/videoJob');
 const { Tokenizer } = require('./tokenizer');
 
+const HOME_PAGE_FILE = "index.md";
+
 const FOLDERS = {
     public: [path.join(__dirname, "./../public"), '/media/admin/My Book/FilmCovers'],
     private: [path.join(__dirname, "./../private"), '/media/admin/My Book/Movies'],
@@ -24,8 +26,10 @@ let TOKENIZER = new Tokenizer();
 
 // Create server
 const server = http.createServer((req, res) => {
+    req
+
     if (req.method === "POST") {
-        return console.error(" POST request")
+        return console.error(" POST request", req);
     }
 
     // Parser l'url
@@ -36,7 +40,11 @@ const server = http.createServer((req, res) => {
     let needAuth = false;
     let needAdminAccess = false;
 
-    if (parsedUrl.pathname && parsedUrl.pathname !== "/") {
+    if (parsedUrl.pathname) {
+        if (parsedUrl.pathname === "/") {
+            parsedUrl.pathname = HOME_PAGE_FILE;
+        }
+
         for (const folder of FOLDERS.public) {
             const filePath = path.join(folder, parsedUrl.pathname);
 
@@ -167,6 +175,20 @@ const server = http.createServer((req, res) => {
     // If no one corresponding file founded
     if (!file) {
         switch (parsedUrl.pathname) {
+            case "/public_files":
+                const files = [];
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+
+                for (const folder of FOLDERS.public) {
+                    try {
+                        files.push(...fs.readdirSync(folder));
+                    } catch (error) { }
+                }
+
+                res.end(JSON.stringify(files));
+                console.log(`"public_files" send with ${files.length} files`)
+
+                return;
             default:
                 // Redirect to the 404 page
                 console.log(`No ${parsedUrl.pathname} file founded, redirect to home page...`);
@@ -237,7 +259,7 @@ const server = http.createServer((req, res) => {
                         <head>
                             <meta charset="utf-8"/>
                             <title>Nec Plus Ultra</title>
-                            <link rel="stylesheet" href="style.css" />
+                            <link rel="stylesheet" href="/style.css" />
                         </head>
                         <body>
                             <div id="content"></div>

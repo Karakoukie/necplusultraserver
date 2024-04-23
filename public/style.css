@@ -9,19 +9,21 @@ html {
 body {
     margin: auto;
     height: 100%;
-    max-width: 640px;
+    max-width: 768px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
 * {
-    font-family: monospace;
-    font-size: 20px;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 18px;
     color: #f6f6f6;
     box-sizing: border-box;
     user-select: none;
 }
 
 a {
-    color: goldenrod;
+    color: gold;
 }
 
 h1 {
@@ -52,6 +54,41 @@ input {
     border: solid 1px #f6f6f6;
 }
 
-table img {
+table, img {
     width: 100%;
+    border-collapse: collapse;
+    margin-bottom: -2px;
+}
+
+tr {
+    border-bottom: solid 2px #494949;
+
+    &:first-child {
+        border-top: solid 2px #494949;
+    }
+
+    td, th {
+        border-right: solid 2px #494949;
+        padding: 10px 20px;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    th {
+        color: darkcyan;
+    }
+
+    td {
+        text-align: justify;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: darkcyan;
 }
