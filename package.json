@@ -3,11 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
+  
   "scripts": {
     "start": "node .",
     "prod": "npx pm2 start .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "deploy" : {
+    "production" : {
+       "user" : "ubuntu",
+       "host" : "necplusultra",
+       "ref"  : "origin/main",
+       "repo" : "https://github.com/Karakoukie/necplusultraserver",
+       "path" : "necplusultraserver",
+       "post-deploy" : "npm install"
+    }
+  }
 }
