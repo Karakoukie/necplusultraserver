@@ -14,7 +14,7 @@
   "deploy" : {
     "production" : {
        "user" : "ubuntu",
-       "host" : "necplusultra",
+       "host" : "localhost",
        "ref"  : "origin/main",
        "repo" : "https://github.com/Karakoukie/necplusultraserver",
        "path" : "necplusultraserver",
