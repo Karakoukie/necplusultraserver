@@ -22,7 +22,7 @@ const CREDENTIALS = {
     }
 }
 
-let TOKENIZER = new Tokenizer();
+const TOKENIZER = new Tokenizer();
 
 // Create server
 const server = http.createServer((req, res) => {
@@ -99,7 +99,9 @@ const server = http.createServer((req, res) => {
             console.log("token:", readedToken)
 
             if (readedToken) {
-                if (readedToken.username === "admin" || (!needAdminAccess && readedToken.username === "private")) {
+                if (readedToken.username === "admin"
+                    || (!needAdminAccess && readedToken.username === "private")
+                ) {
                     if (TOKENIZER.validateExpiry(readedToken.expiry)) {
                         if (TOKENIZER.validateSecret(readedToken.secret)) {
                             isAuth = true;
@@ -154,18 +156,33 @@ const server = http.createServer((req, res) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Connection</title>
-                <link rel="stylesheet" href="style.css">
+                <link rel="stylesheet" href="/style.css">
             </head>
             <body>
-                <h1>Who TF are u?</h1>
-                <form method="get">
-                    <span>
-                        <label for="secret">What's the secret?</label>
-                        <input type="password" name="secret" id="secret">
-                    </span>
-            
-                    <input type="submit" value="Connect">
-                </form>
+                <table>
+                    <tr>
+                        <th>NEC PLUS ULTRA</th>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <th><a href="/index.md">HOME</a></th>
+                        <th><a href="/private.md">VIP</a></th>
+                        <th><a href="/admin.md">ADMIN</a></th>
+                    </tr>
+                </table>
+
+                <p>
+                    <form method="get">
+                        <span>
+                            <label for="secret">What's the secret?</label>
+                            <input type="password" name="secret" id="secret">
+                        </span>
+                        
+                        <input type="submit" value="Connect">
+                    </form>
+                </p>
             </body>
             </html>
         `);
@@ -260,6 +277,7 @@ const server = http.createServer((req, res) => {
                             <meta charset="utf-8"/>
                             <title>Nec Plus Ultra</title>
                             <link rel="stylesheet" href="/style.css" />
+                            <link rel="icon" type="image/x-icon" href="/favicon.png">
                         </head>
                         <body>
                             <div id="content"></div>

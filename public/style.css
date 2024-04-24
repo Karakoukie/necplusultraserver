@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
 html {
     background-color: #0f0f0f;
     position: absolute;
@@ -12,11 +14,9 @@ body {
     max-width: 768px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
-
 * {
-    font-family: 'Fira Code', 'Courier New', Courier, monospace;
-    font-size: 18px;
+    font-family: 'Fira Code';
+    font-size: 16px;
     color: #f6f6f6;
     box-sizing: border-box;
     user-select: none;
@@ -44,20 +44,27 @@ p {
     text-align: justify;
 }
 
-button {
-    color: #0f0f0f;
+button, input[type=submit] {
+    color: gold;
+    cursor: pointer;
+    border: solid 2px gold;
 }
 
 input {
     background: none;
     outline: none;
-    border: solid 1px #f6f6f6;
+    border: solid 2px #f6f6f6;
 }
 
 table, img {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: -2px;
+}
+
+img {
+    user-select: none;
+    pointer-events: none;
 }
 
 tr {

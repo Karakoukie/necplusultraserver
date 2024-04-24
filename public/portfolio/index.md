@@ -1,10 +1,10 @@
 |Tristan MULLER|
 |-|
 
-|**Portfolio**|**28 yo information system expert**|**2024**|
+|**Portfolio**|**Information system expert**|**28 Y.O.**|
 |-|-|-|
 
-|[HOME](/portfolio/index.md)|[OPENGL](/portfolio/index.md)|[AI](/portfolio/index.md)|
+|[HOME](/portfolio/index.md)|[OPENGL](/portfolio/opengl.md)|[AI](/portfolio/ai.md)|
 |-|-|-|
 
 ![](/pipboyguy.png)
