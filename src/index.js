@@ -18,7 +18,7 @@ const CREDENTIALS = {
         secret: "aqwzsxyhn852456",
     },
     admin: {
-        secret: "YTQ2YzVK2TDzHK47Xz------"
+        secret: "azertyqsdfgh123456"
     }
 }
 
